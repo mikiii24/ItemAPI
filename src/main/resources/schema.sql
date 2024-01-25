@@ -1,0 +1,7 @@
+DROP TABLE if exists itemdata;
+
+CREATE TABLE itemdata (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    price VARCHAR(255) NOT NULL
+);

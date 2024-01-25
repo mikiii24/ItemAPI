@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ItemMapper">
+	<select id="findAll" parameterType="String">
+		SELECT * FROM itemdata
+	</select>
+
+	<select id="searchItem" parameterType="String">
+		SELECT * FROM itemdata WHERE name LIKE #{word}
+	</select>
+
+	<select id="findById" parameterType="String">
+		SELECT * FROM itemdata WHERE id = ${id}
+	</select>
+
+	<insert id="addItem" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO itemdata(name, price) VALUES (#{name}, #{price})
+	</insert>
+
+	<update id="updateItem">
+		UPDATE itemdata SET name = #{name}, price = ${price} WHERE id = ${id}
+	</update>
+
+	<delete id="deleteItem">
+		DELETE FROM itemdata WHERE id = ${id}
+	</delete>
+
+</mapper>
